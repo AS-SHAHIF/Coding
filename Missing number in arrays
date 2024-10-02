@@ -16,24 +16,17 @@ Expected Auxiliary Space: O(1)
 //Here the java code
 
 class Solution {
-    int countTriplet(int arr[], int n) {
-        // code here
-        int[] index=new int[100000];
-        for(int i=0;i<n;i++){
-            if(arr[i]<100000){
-                index[arr[i]]=1;
-            }
-        }
-        int count=0;
+
+    // Note that the size of the array is n-1
+    int missingNumber(int n, int arr[]) {
+
+        // Your Code Here
+        int sum1=n*(n+1)/2;
+        int sum2=0;
         for(int i=0;i<n-1;i++){
-            for(int j=i+1;j<n;j++){
-                int sum=arr[i]+arr[j];
-                if(sum<100000 && index[sum]==1){
-                    count++;
-                }
-            }
+            sum2+=arr[i];
         }
-        return count;
+        int result=sum1-sum2;
+        return result;
     }
 }
-
